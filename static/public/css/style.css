@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+*{
+
+  margin: 0;
+  padding: 0;
+}
+
+.alert-danger{
+
+  display: none;
+  background: rgba(255,93,125,1);
+  border-color:  rgb(255, 25, 71);
+  color: white ;
+}
+
+.alert-primary{
+
+  display: none;
+  background: rgba(89,147,175,1);
+  border-color:  rgb(25, 107, 147);
+  color: white ;
+}
+#cadastrar{
+
+  display: none;
+}
+.hero{
+
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(128deg, rgba(255,93,125,1) 8%, rgba(163,123,153,0) 8%, rgba(89,147,175,1) 8%, rgba(89,147,175,1) 16%, rgba(193,202,118,0.3491771708683473) 16%, rgba(255,235,83,1) 16%, rgba(255,235,83,1) 24%, rgba(255,255,255,1) 24%);
+  background-position: left;
+  background-size: cover;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  
+}
+
+.form-box{
+
+  width: 400px;
+  height: 540px;
+  position: relative;
+  margin: 9% auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 3%;
+  box-shadow: 10px 10px 40px 12px rgba(0,0,0,0.47);
+  background-color: #ffffff;
+  padding: 5px;
+  transition: .3s ease-in-out;
+
+}
+
+.img-box{
+
+  width: 380px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.img-box img{
+
+  width: 340px;
+  position: relative;
+  margin: 3%;
+}
+
+.button-box{
+
+  margin: 4%;
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px beige;
+  border-radius: 30px;
+  display: flex;
+}
+
+.toggle-btn{
+
+  padding: 10px 30px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+
+  font-family: "Open Sans", "Lucida Grande", sans-serif;
+  position: relative;
+}
+
+.font-OpenSans{
+
+  font-family: "Open Sans", "Lucida Grande", sans-serif;
+}
+#btn{
+
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: rgba(255,93,125,1);
+  border-radius: 30px;
+  transition: .5s;
+  display: flex;
+
+}
+
+.icon-field{
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+  color:rgba(89,147,175,1) ;
+
+}
+.input-field{
+
+  
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgba(89,147,175,1);
+  border-radius: 0px;
+  outline: none;
+  background: transparent;
+
+}
+
+.input-login{
+
+  display: flex;
+  justify-content: center;
+
+}
+.submit-btn{
+
+  margin: 4%;
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  border: 0;
+  outline: none;
+  background: rgba(89,147,175,1);
+  color: #ffffff;
+  transition: .3s ease-in-out;
+}
+
+.submit-btn:hover{
+
+  background: rgb(47, 129, 170);
+  
+}
