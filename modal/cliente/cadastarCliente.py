@@ -4,10 +4,10 @@ import os
 from os.path import exists
 
 
-def cadastrar(cliente):
+def cadastrar():
   
-  usuario=cliente.usuario
-  senha=cliente.senha
+  usuario=cliente.Cliente.usuario
+  senha=cliente.Cliente.senha
   cadastro=True
   id_last=0
   if not exists("bd/cliente.csv"):
@@ -67,7 +67,8 @@ def cadastrar(cliente):
           registro=csv.DictWriter(fileCliente_add, ['id', 'usuario', 'senha'])
           registro.writerows(novoCliente)
           fileCliente_add.close()
-
+          cliente.Cliente.logado=False
+          
           return "ok"
       except:
         return "erro"
@@ -77,7 +78,7 @@ def cadastrar(cliente):
       return "erro1"
   
 
-   
+
 
 
       
