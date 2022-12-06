@@ -14,7 +14,7 @@ def cadastrar():
 
     try:
       
-      with open("bd/cliente.csv", "wt") as fileCliente_out:
+      with open("bd/cliente.csv", "wt", encoding='utf-8') as fileCliente_out:
 
         novoCliente=[
           
@@ -34,7 +34,7 @@ def cadastrar():
 
   else:
     try:
-      with open("bd/cliente.csv", "rt") as fileCliente_in:
+      with open("bd/cliente.csv", "rt", encoding='utf-8') as fileCliente_in:
 
         leitura = csv.DictReader(fileCliente_in)
 
@@ -57,7 +57,7 @@ def cadastrar():
     if cadastro:
 
       try:
-        with open("bd/cliente.csv", "at") as fileCliente_add:
+        with open("bd/cliente.csv", "at", encoding='utf-8') as fileCliente_add:
           novoCliente=[
                 
             {'id':id_last, 'usuario':usuario, 'senha': senha}

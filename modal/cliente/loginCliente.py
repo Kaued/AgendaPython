@@ -13,8 +13,9 @@ def loginMd():
 
   if exists("bd/cliente.csv"):
 
-    
-      with open("bd/cliente.csv", "rt") as fileCliente_in:
+    try:
+
+      with open("bd/cliente.csv", "rt", encoding='utf-8') as fileCliente_in:
 
         leitura = csv.DictReader(fileCliente_in)
 
@@ -51,7 +52,9 @@ def loginMd():
 
         fileCliente_in.close()
     
-   
+    except:
+
+      return "erro"
      
   else:
 

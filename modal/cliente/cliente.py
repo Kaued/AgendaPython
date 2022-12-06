@@ -5,6 +5,8 @@ class Cliente:
         self.__senha = senha
         self.__idCliente = idCliente
         self.__logado=logado
+        
+  
 
   @property
   def usuario(self):
@@ -26,7 +28,7 @@ class Cliente:
   def logado(self):
         return self.__logado
   
-  @senha.setter 
+  @logado.setter 
   def logado(self, logado):
         self.__logado = logado
 
@@ -37,5 +39,7 @@ class Cliente:
   @idCliente.setter 
   def idCliente(self, idCliente):
         self.__idCliente = idCliente
-
+  
+  def __init__(self):
+        Cliente.logado(False)
   

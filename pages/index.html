@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  {% include "head.html"%}
+  <title>Home</title>
+  <script type="text/javascript" src="../static/public/js/agenda.js"></script>
+
+</head>
+
+<body>
+  {% include "navbar.html"%}
+
+  <div class="modal fade" id="excluirEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" id="mensagemDl"></div>
+          Deseja mesmo excluir o evento?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary botaoEnviar" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-outline-danger botaoCancelar" id="botaoExcluir"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+          </svg>Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addEvento" tabindex="-1" aria-labelledby="addEvento" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Adicionar novo evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" id="mensagem">
+        
+          </div>
+          <form>
+
+            <label for="nameEvent" class="form-label font-OpenSan formAddText">Titulo do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              
+              <span class="input-group-text icon-field" id="name-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+              </svg></span>
+              <input type="text" class="form-control input-field" placeholder="Nome do evento" aria-label="Nome do evento" aria-describedby="user-icon" id="nameEvent">
+    
+            </div>
+
+            <label for="dataIncial" class="form-label font-OpenSan formAddText">Inico do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              <span class="input-group-text icon-field" id="date-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg></span>
+              <input type="datetime-local" class="form-control input-field" placeholder="Data inicial" aria-label="data inicio do evento" aria-describedby="user-icon" id="dataIncial">
+    
+            </div>
+
+            <label for="dataFinal" class="form-label font-OpenSan formAddText">Fim do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              <span class="input-group-text icon-field" id="dateF-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg></span>
+              <input type="datetime-local" class="form-control input-field" placeholder="Data final" aria-label="data fim do evento" aria-describedby="user-icon" id="dataFinal">
+    
+            </div>
+
+            <label for="descEvent" class="form-label font-OpenSan formAddText">Descrição do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              
+              <span class="input-group-text icon-field" id="user-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+              </svg></span>
+              <textarea class="form-control input-field" placeholder="(opcional)" aria-label="Nome do evento" aria-describedby="user-icon" id="descEvent"></textarea>
+    
+            </div>
+          </form>
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger botaoCancelar" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-outline-primary botaoEnviar" id="botaoEnviaAgenda"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>Criar Evento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editEvento" tabindex="-1" aria-labelledby="addEvento" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Editar evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" id="mensagemEt">
+        
+          </div>
+          <form>
+
+            <label for="nameEvent" class="form-label font-OpenSan formAddText">Titulo do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              <span class="d-none" id="idEvento"></span>
+              <span class="input-group-text icon-field" id="name-iconEt"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+              </svg></span>
+              <input type="text" class="form-control input-field" placeholder="Nome do evento" aria-label="Nome do evento" aria-describedby="user-icon" id="nameEventEt" value="">
+    
+            </div>
+
+            <label for="dataIncial" class="form-label font-OpenSan formAddText">Inico do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              <span class="input-group-text icon-field" id="date-iconEt"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg></span>
+              <input type="datetime-local" class="form-control input-field" placeholder="Data inicial" aria-label="data inicio do evento" aria-describedby="user-icon" id="dataIncialEt" value="">
+    
+            </div>
+
+            <label for="dataFinal" class="form-label font-OpenSan formAddText">Fim do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              <span class="input-group-text icon-field" id="dateF-iconEt"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg></span>
+              <input type="datetime-local" class="form-control input-field" placeholder="Data final" aria-label="data fim do evento" aria-describedby="user-icon" id="dataFinalEt" value="">
+    
+            </div>
+
+            <label for="descEvent" class="form-label font-OpenSan formAddText">Descrição do evento:</label>
+            <div class="input-group mb-3 input-login">
+
+              
+              <span class="input-group-text icon-field" id="user-iconEt"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+              </svg></span>
+              <textarea class="form-control input-field" placeholder="(opcional)" aria-label="Nome do evento" aria-describedby="user-icon" id="descEventEt" value=""></textarea>
+    
+            </div>
+          </form>
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger botaoCancelar" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-outline-primary botaoEnviar" id="botaoEditarAgenda"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>Editar Evento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-1 d-flex">
+    
+    <div class="container-fluid topAddAgenda font-OpenSan">
+
+        Seja bem-vindo a sua agenda
+ 
+    </div>
+
+    <div class="d-inline justify-content-end topAddButton gap-2">
+      <button type="button" class="btn btn-outline-danger d-inline-flex" data-bs-toggle="modal" data-bs-target="#addEvento"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg><b>Evento</b></button>
+
+      
+    </div>
+
+  </div>
+
+  <div class="showAgenda">
+
+    {% for eventos in user['agenda']: %}
+    <div class="eventoCard" id="evento{{eventos['id']}}" placeholder="{{eventos['id']}}">
+      
+     <div class="buttonsCard">
+
+      <button type="button" class="btn btn-outline-warning botaoAlterar" data-bs-toggle="modal" data-bs-target="#editEvento" target="evento{{eventos['id']}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+      </svg></button>
+      <button type="button" class="btn btn-outline-danger botaoCancelar" target="evento{{eventos['id']}}" data-bs-toggle="modal" data-bs-target="#excluirEvento"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg></button>
+
+     </div>
+     <h1>{{eventos['nome']}}</h1>
+      
+     <div class="horarioCard">
+
+      <div class="inicioCard"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hourglass-top" viewBox="0 0 16 16">
+        <path d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z"/>
+      </svg><h1>Inicio</h1></div>
+
+      <div class="horarios"><p>{{eventos['dataInicial']}}</p></div>
+
+      <div class="fimCard"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+        <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2h-7z"/>
+      </svg><h1>Fim</h1></div>
+
+      <div class="horarios dataFinalColor"><p>{{eventos['dataFinal']}}</p></div>
+
+     </div>
+    
+     <div class="descEvento" >
+
+      <h2>Descrição</h2>
+
+      <div class="textDescricao"><p>{{eventos['descEvento']}}</p></div>
+
+     </div>
+
+  
+    </div>
+    {%endfor%}
+
+  </div>
+ 
+</body>
+
+</html>

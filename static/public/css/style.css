@@ -6,6 +6,7 @@
   padding: 0;
 }
 
+
 .alert-danger{
 
   display: none;
@@ -162,4 +163,352 @@
 
   background: rgb(47, 129, 170);
   
+}
+
+.navbar{
+
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(90deg, rgba(255,93,125,1) 34%, rgba(163,123,153,0) 34%, rgba(89,147,175,1) 34%, rgba(89,147,175,1) 67%, rgba(255,235,83,1) 67%, rgba(255,235,83,1) 100%, rgba(255,255,255,1) 100%) 1;
+  transition: all 2s linear;
+}
+
+.nav-item{
+
+  margin-right: 20px;
+}
+
+#itemAgenda{
+  width: 100%;
+  border-color: rgba(89,147,175,1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 60px 60px 60px 60px;
+  display: flex;
+
+}
+
+
+#itemAgenda b{
+
+  display: none;
+  height: 0;
+  opacity: 0;
+  margin-left: 10px;
+  color: rgba(89,147,175,1);
+
+}
+
+
+
+#itemAgenda svg{
+
+  color: rgba(89,147,175,1);
+
+}
+
+#itemPesquisar{
+  width: 100%;
+  border-color: rgba(255,93,125,1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 60px 60px 60px 60px;
+  display: flex;
+
+
+}
+
+
+#itemPesquisar b{
+
+  display: none;
+  height: 0;
+  opacity: 0;
+  margin-left: 10px;
+  color: rgba(255,93,125,1);
+
+}
+
+
+
+#itemPesquisar svg{
+
+  color: rgba(255,93,125,1);
+
+}
+
+.logOut{
+
+ 
+  color: rgba(89,147,175,1);
+  border-radius: 60px 60px 60px 60px;
+}
+
+.userShow{
+
+  margin-left: 10px;
+  color: rgba(89,147,175,1);
+  font-weight: bold;
+  display: inline;
+  margin-right: 0px;
+}
+
+.userShow:hover{
+
+  color: rgba(89,147,175,1);
+}
+
+.logOutIcon{
+  display: inline;
+  margin-left: 0px;
+  color: rgba(255,93,125,1);
+  cursor: pointer;  
+}
+
+.topAddAgenda{
+
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: darkslategray;
+  margin-top: 40px;
+  margin-left: 40px;
+  display: inline;
+}
+
+.topAddButton{
+
+  margin-top: 40px;
+  margin-right: 40px;
+}
+
+.topAddButton button{
+
+  border-color: rgba(255,93,125,1);
+  color: rgba(255,93,125,1);
+  transition: all .3s ease-in-out;
+}
+
+.topAddButton button:hover{
+
+  border-color: rgba(255,93,125,1);
+  background-color: rgba(255,93,125,1);
+}
+
+.formAddText{
+
+  color: darkslategray;
+  font-weight: bolder;
+}
+
+
+.botaoEnviar{
+
+  border-color: rgba(89,147,175,1);
+  color: rgba(89,147,175,1);
+  transition: all .3s ease-in-out;
+}
+
+.botaoEnviar:hover{
+
+  border-color: rgba(89,147,175,1);
+  background-color: rgba(89,147,175,1);
+  color: #ffffff;
+}
+
+.botaoAlterar{
+
+  border-color: rgb(202, 180, 8);
+  color: rgb(202, 180, 8);
+  transition: all .3s ease-in-out;
+}
+
+.botaoAlterar:hover{
+
+  border-color: rgb(202, 180, 8);
+  background-color: rgb(202, 180, 8);
+  color: #ffffff;
+}
+.botaoCancelar{
+
+  border-color: rgba(255,93,125,1);
+  color: rgba(255,93,125,1);
+  transition: all .3s ease-in-out;
+}
+
+.botaoCancelar:hover{
+
+  border-color: rgba(255,93,125,1);
+  background-color: rgba(255,93,125,1);
+  color: #ffffff;
+}
+
+.showAgenda{
+
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 30px;
+
+}
+.eventoCard{
+
+  display: inline-table;
+  border-width: 2px;
+  border-color: rgba(89,147,175,1);
+  border-style: solid;
+  border-radius: 21px 21px 21px 21px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-right: 15px;
+}
+
+
+.eventoCard h1{
+
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  color: darkslategray;
+  font-size: 20px;
+  display: flow-root;
+  text-align: center;
+  border-width: 0px;
+  border-style: solid;
+  border-bottom-width: 3px;
+  border-image: linear-gradient(90deg, rgba(255,93,125,1) 34%, rgba(163,123,153,0) 34%, rgba(89,147,175,1) 34%, rgba(89,147,175,1) 67%, rgba(255,235,83,1) 67%, rgba(255,235,83,1) 100%, rgba(255,255,255,1) 100%) 1;
+  
+}
+
+.horarioCard{
+  display: table-row;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inicioCard{
+
+  display: flex;
+  margin-left: 20px;
+  color: rgb(51, 127, 165);
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;  
+}
+
+.horarios{
+
+  display: flex;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  font-weight: bold;
+}
+.inicioCard h1{
+
+  display: inline;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  color: rgb(51, 127, 165);
+  font-size: 20px;
+  border-width: 0px;
+}
+
+.fimCard{
+
+  display: flex;
+  margin-left: 20px;
+  color: rgba(255,93,125,1);
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.fimCard h1{
+
+  display: inline;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  color: rgba(255,93,125,1);
+  font-size: 20px;
+  border-width: 0px;
+}
+
+.descEvento{
+
+  display: table-row;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.descEvento h2{
+
+  display: inline;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  color: rgb(51, 127, 165);
+  font-size: 20px;
+  border-width: 0px;
+  display: flex;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.textDescricao{
+
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(255,235,83,1);
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 17px 17px 17px 17px;
+  width: 200px;
+  height: 150px;
+  max-height: 150px;
+  max-width: 200px;
+  overflow:scroll;
+  overflow-x:hidden;
+  padding: 8px;
+}
+
+.textDescricao p{
+
+  display: table-row;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.buttonsCard{
+
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding-right: 10px;
+}
+
+.buttonsCard button{
+
+  margin-right: 5px;
+}
+
+.dataFinalColor{
+
+  color: rgba(255,93,125,1);
 }
