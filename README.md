@@ -12,7 +12,9 @@ Utiliza a linguagem Python como base para o desenvolvimento.
 É necessário executar o comando pip install -r requirements.txt para instalar as dependências do projeto presentes no arquivo "requirements.txt".
 O arquivo principal do projeto é o app.py, que deve ser executado para iniciar a aplicação.
 A biblioteca Flask é utilizada para a criação da aplicação web.
-🚀 Uso
+
+#
+## 🚀 Uso
 
 Para utilizar o projeto da Agenda de Eventos, siga as instruções abaixo:
 
